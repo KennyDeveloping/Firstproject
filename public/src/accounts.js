@@ -1,5 +1,5 @@
 function findAccountById(accounts, id) {
-	let result = accounts.find((account) => account.id === id); //use the find method to match id .
+	let result = accounts.find((account) => `${account.id}`  === id); //use the find method to match id . use the object destucting 
 	//return
 	return result;
 }
@@ -7,14 +7,14 @@ function findAccountById(accounts, id) {
 function sortAccountsByLastName(accounts) {
 	//use the sort method to arrange last names
 	let result = accounts.sort((nameA, nameB) => {
-		return nameA.name.last < nameB.name.last ? -1 : 1;
+		return `${nameA.name.last}` < `${nameB.name.last}` ? -1 : 1;
 	}); //result
 	return result;
 }
 function getTotalNumberOfBorrows(account, books) {
 	const accnt = account.id;
-	let total = 0;
-	books.forEach((book) =>
+	let total = 0;			
+	books.forEach((book) =>		
 		book.borrows.forEach((borrow) => accnt === borrow.id && total++)
 	);
 	return total;
