@@ -6,7 +6,7 @@ function findAuthorById(authors, id) {
 }
 function findBookById(books, id) {
 	//find the book now with id
-	let result = books.find((book) => book.id === id);
+	let result = books.find((book) => `${book.id }` === id); //use the destucturing method for book.id(object)
 	//return result
 	return result;
 }
