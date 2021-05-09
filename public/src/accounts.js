@@ -11,21 +11,22 @@ function sortAccountsByLastName(accounts) {
 	}); //result
 	return result;
 }
-function getTotalNumberOfBorrows(account, books) {
+function getTotalNumberOfBorrows(account, books) // use two parameters. accounts and books-array
+{
 	const accnt = account.id;
-	let total = 0;			
+	let total = 0;		//set a variable	
 	books.forEach((book) =>		
-		book.borrows.forEach((borrow) => accnt === borrow.id && total++)
+		book.borrows.forEach((borrow) => accnt === borrow.id && total++) //loop through array
 	);
 	return total;
 }
-function getBooksPossessedByAccount(account, books, authors) {
+function getBooksPossessedByAccount(account, books, authors) { // use three parameters
 	let booksPossessed = [];
 	books.forEach((book) => {
 		let borrowArray = book.borrows;
 		if (
 			borrowArray.find(
-				(borrow) => borrow.id === account.id && borrow.returned === false
+				(borrow) => borrow.id === account.id && borrow.returned === false //return if borrow.returned false and account id checked out book id
 			)
 		) {
 			booksPossessed.push(book);
@@ -35,7 +36,7 @@ function getBooksPossessedByAccount(account, books, authors) {
 	booksPossessed.forEach((book) => {
 		let author = authors.find((person) => person.id === book.authorId);
 		book["author"] = author;
-	});
+	});//return array of books matching account
 	console.log(booksPossessed);
 	return booksPossessed;
 }
@@ -46,3 +47,4 @@ module.exports = {
 	getTotalNumberOfBorrows,
 	getBooksPossessedByAccount,
 };
+ 
