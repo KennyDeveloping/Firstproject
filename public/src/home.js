@@ -1,24 +1,24 @@
 function getTotalBooksCount(books) {
-	let total = 0;
+	let total = 0;//set total variable
 	for (let i = 0; i < books.length; i++) {
-		total++;
+		total++;//add total for book
 	}
 	return total;
-}
+}//return total
 function getTotalAccountsCount(accounts) {
-	let total = 0;
-	for (let i = 0; i < accounts.length; i++) {
+	let total = 0;//set total variable 
+	for (let i = 0; i < accounts.length; i++) {//loop through account
 		total++;
-	}
+	}//return total
 	return total;
 }
 function getBooksBorrowedCount(books) {
-	let result = books.reduce((acc, element) => {
-		let returns = element.borrows[0].returned;
-		if (!returns) acc++;
+	let result = books.reduce((acc, element) => { //use reduce
+		let returns = element.borrows[0].returned; //if not return add to counter
+		if (!returns) acc++; //return counter
 		return acc;
 	}, 0);
-	return result;
+	return result; //return total
 }
 function getMostCommonGenres(books) {
 	const bookGenres = books.map((book) => book.genre);
@@ -39,13 +39,13 @@ function getMostCommonGenres(books) {
 }
 
 function getMostPopularBooks(books) {
-	const arr = [];
+	const arr = []; //set variable to array
 	books.forEach((book) => {
-		const count = book.borrows.length;
-		const name = book.title;
+		const count = book.borrows.length; //get length of borrowws for book
+		const name = book.title; //push variable into array
 		arr.push({ name, count });
 	});
-	return _sortAndSlice(arr, 5);
+	return _sortAndSlice(arr, 5);//return array above with the top 5 books 
 }
 
 function getMostPopularAuthors(books, authors) {
