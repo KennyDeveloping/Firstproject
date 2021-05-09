@@ -1,6 +1,6 @@
 function findAuthorById(authors, id) {
 	// find the author by matching id
-	let found = authors.find((author) => author.id === id);
+	let found = authors.find((author) => author.id === id);//use the find function to match id
 	//return found author
 	return found;
 }
@@ -33,5 +33,5 @@ module.exports = {
 	findAuthorById,
 	findBookById,
 	partitionBooksByBorrowedStatus,
-	getBorrowersForBook,
+	getBorrowersForBook, 
 };
